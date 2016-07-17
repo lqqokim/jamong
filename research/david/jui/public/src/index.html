@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/jui/ui.min.css" />
+    <link rel="stylesheet" href="lib/jui/ui-jennifer.min.css" />
+
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+
+    <div id="app" class="jui">
+      <div class="appTop">
+
+        <span class="btn">
+          <a onclick="onClickComponents()">Components</a>
+          <div class="dropdown" id="divComponentList">
+            <ul style="width: 150px">
+              <li onClick="onClickAddComponent('Icon')">Icon</li>
+              <li onClick="onClickAddComponent('Button')">Button</li>
+              <li onClick="onClickAddComponent('Switch')">Switch</li>
+            </ul>
+          </div>
+        </span>
+
+        <span class="btn">
+          <a onclick="onClickCharts()">Charts</a>
+          <div class="dropdown" id="divChartList">
+            <ul style="width: 150px">
+              <li onClick="onClickAddChart('Pie')">Pie</li>
+            </ul>
+          </div>
+        </span>
+
+        <a class="btn">Play</a>
+      </div>
+      <div class="appBody">
+      <div>
+    </div>
+
+    <script src="lib/jquery/jquery-1.8.0.min.js"></script>
+    <script src="lib/jquery/core.min.js"></script>
+    <script src="lib/jui/ui.min.js"></script>
+    <script src="lib/jui/chart.min.js"></script>
+
+    <script src="js/index.js"></script>
+
+  </body>
+</html>

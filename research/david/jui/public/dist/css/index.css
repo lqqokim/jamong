@@ -1,0 +1,22 @@
+#app {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+}
+
+#app > .appTop {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#app > .appTop .btn {
+  position: relative;
+}
+#divComponentList {
+  position: absolute;
+}
+
+#app > .appBody {
+}

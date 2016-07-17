@@ -1,0 +1,10 @@
+jui
+ - jui UI와 Chart 사용방법 테스트 진행
+    - jquery 필수이다.
+    - 저작도구 프로토타이핑 진행함.
+    - css 작업에 다소 시간이 걸릴 것으로 예상됨.
+
+angular2-seed
+ - angular2-seed에 jui 컴포넌트화 테스트 진행
+    - jquery, jui npm을 통해 install후 inject하는데 실패함.
+    - button 컴포넌트화 진행함.

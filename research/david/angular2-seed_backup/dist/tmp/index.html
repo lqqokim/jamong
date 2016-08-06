@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="<%= APP_BASE %>">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= APP_TITLE %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- inject:css -->
+  <!-- endinject -->
+
+  <link rel="stylesheet" href="tempLibs/jui/ui.min.css" />
+  <link rel="stylesheet" href="tempLibs/jui/ui-jennifer.min.css" />
+
+</head>
+<body class="jui">
+
+  <!-- <sd-app>Loading...</sd-app> -->
+  <filterable-product-table></filterable-product-table>
+
+  <script>
+  // Fixes undefined module function in SystemJS bundle
+  function module() {}
+  </script>
+
+  <!-- shims:js -->
+  <!-- endinject -->
+
+  <% if (ENV === 'dev') { %>
+  <script>
+    System.config(<%=
+      JSON.stringify(SYSTEM_CONFIG, null, 2)
+    %>)
+  </script>
+  <% } %>
+
+  <!-- libs:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <% if (ENV === 'dev') { %>
+  <script>
+  System.import('<%= BOOTSTRAP_MODULE %>')
+    .catch(function (e) {
+      console.error(e,
+        'Report this error at https://github.com/mgechev/angular2-seed/issues');
+    });
+  </script>
+  <% } %>
+
+  <script src="tempLibs/jquery/jquery-1.8.0.min.js"></script>
+  <script src="tempLibs/jquery/core.min.js"></script>
+  <script src="tempLibs/jui/ui.min.js"></script>
+  <script src="tempLibs/jui/chart.min.js"></script>
+
+</body>
+</html>

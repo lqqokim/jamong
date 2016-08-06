@@ -30,16 +30,6 @@ gulp.task('build.dev.watch', (done: any) =>
               done));
 
 // --------------
-// Build e2e.
-gulp.task('build.e2e', (done: any) =>
-  runSequence('clean.dev',
-              'tslint',
-              'build.assets.dev',
-              'build.js.e2e',
-              'build.index.dev',
-              done));
-
-// --------------
 // Build prod.
 gulp.task('build.prod', (done: any) =>
   runSequence('clean.prod',
@@ -95,12 +85,9 @@ gulp.task('serve.dev', (done: any) =>
               'watch.dev',
               done));
 
-// --------------
-// Serve e2e
-gulp.task('serve.e2e', (done: any) =>
-  runSequence('build.e2e',
-              'server.start',
-              'watch.e2e',
+
+gulp.task('serve', (done: any) =>
+  runSequence('serve.dev',
               done));
 
 

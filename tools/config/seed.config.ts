@@ -310,7 +310,10 @@ export class SeedConfig {
     packageConfigPaths: [
       `/node_modules/*/package.json`,
       `/node_modules/**/package.json`,
-      `/node_modules/@angular/*/package.json`
+      `/node_modules/@angular/*/package.json`,
+      `!/node_modules/@ngrx/package.json`,
+      `/node_modules/@ngrx/core/package.json`,
+      `/node_modules/@ngrx/store/package.json`
     ],
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
@@ -323,6 +326,8 @@ export class SeedConfig {
       '@angular/platform-browser-dynamic': `node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js`,
       '@angular/router': `node_modules/@angular/router/index.js`,
       'rxjs/*': `node_modules/rxjs/*`,
+      '@ngrx/core': `node_modules/@ngrx/core/index.js`,
+      '@ngrx/store': `node_modules/@ngrx/store/index.js`,
       'app/*': `/app/*`,
       '*': `node_modules/*`
     },
@@ -346,11 +351,15 @@ export class SeedConfig {
     defaultJSExtensions: true,
     packageConfigPaths: [
       join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
-      join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
+      join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json'),
+      join(this.PROJECT_ROOT, 'node_modules', '@ngrx', 'core', 'package.json'),
+      join(this.PROJECT_ROOT, 'node_modules', '@ngrx', 'store', 'package.json')
     ],
     paths: {
       [`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
-      '*': 'node_modules/*'
+      '*': 'node_modules/*',
+      '@ngrx/core': `node_modules/@ngrx/core/index.js`,
+      '@ngrx/store': `node_modules/@ngrx/store/index.js`
     },
     packages: {
       '@angular/common': {
@@ -386,6 +395,14 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       'rxjs': {
+        defaultExtension: 'js'
+      },
+      '@ngrx/core': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@ngrx/store': {
+        main: 'index.js',
         defaultExtension: 'js'
       }
     }

@@ -23,6 +23,10 @@ export class ProjectConfig extends SeedConfig {
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
       {src: 'jquery/dist/jquery.js', inject: 'libs'},
+      {src: 'jui/lib/core.js', inject: 'libs'},
+      {src: 'jui/dist/ui.js', inject: 'libs'},
+      {src: `jui/dist/ui.min.css`, inject: true, vendor: false},
+      {src: 'jui-chart/dist/chart.js', inject: 'libs'},
     ];
 
     // Add `local` third-party libraries to be injected/bundled.

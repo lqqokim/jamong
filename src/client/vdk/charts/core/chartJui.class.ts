@@ -3,10 +3,12 @@ import { ChartBaseClass } from './chartBase.class';
 
 export abstract class ChartJuiClass implements ChartBaseClass {
   constructor() {
-      
   }
 
-  public init(selector:string, config:Object) {
+  public init(selector: string, config: Object) {
     console.log('init', 'ChartJuiClass');
+  }
+
+  public draw() {
   }
 }

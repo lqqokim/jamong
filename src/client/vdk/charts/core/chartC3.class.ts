@@ -3,10 +3,12 @@ import { ChartBaseClass } from './chartBase.class';
 
 export abstract class ChartC3Class implements ChartBaseClass {
   constructor() {
-
   }
 
-  public init(selector:string, config:Object) {
+  public init(selector: string, config: Object) {
     console.log('init', 'ChartC3Class');
+  }
+
+  public draw() {
   }
 }

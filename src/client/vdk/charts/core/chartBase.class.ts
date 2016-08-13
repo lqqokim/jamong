@@ -5,8 +5,10 @@ export abstract class ChartBaseClass {
 
   }
 
-  public init(selector:string, config:Object) {
-    console.log('init', 'ChartBaseClass');
+  public init(selector: string, config: Object) {
+  }
+
+  public draw() {
   }
 
   /*

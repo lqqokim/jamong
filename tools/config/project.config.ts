@@ -26,6 +26,7 @@ export class ProjectConfig extends SeedConfig {
       {src: 'jui/lib/core.js', inject: 'libs'},
       {src: 'jui/dist/ui.js', inject: 'libs'},
       {src: `jui/dist/ui.min.css`, inject: true, vendor: false},
+      {src: `jui/dist/ui-jennifer.min.css`, inject: true, vendor: false},
       {src: 'jui-chart/dist/chart.js', inject: 'libs'},
     ];
 

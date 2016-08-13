@@ -1,5 +1,5 @@
 import { Input, Output, EventEmitter } from '@angular/core';
-import { ChartConfiguration } from './chart-config.interface';
+import { ChartConfiguration } from './chart-config.type';
 
 export abstract class ChartBaseClass {
   constructor() {

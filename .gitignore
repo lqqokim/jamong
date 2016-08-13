@@ -45,3 +45,7 @@ tmp
 
 gulpfile.js
 gulpfile.js.map
+
+
+ts-node
+npm-debug*

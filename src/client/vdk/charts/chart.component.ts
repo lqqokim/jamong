@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
-import { ChartJuiClass } from './core/chart-jui.class';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChartCommonClass } from './core/chart-common.class';
+import { ChartConfiguration } from './core/chart-config.interface';
 
 @Component({
-    moduleId: module.id,
-    selector: 'chart',
-    template: `
-        <div class="chartComponent">
-        </div>
-        <p>chart component</p>
-    `
+  moduleId: module.id,
+  selector: 'chart',
+  template: `
+      <div class="chartComponent" style="height: 500px;">
+      </div>
+      <p>chart component</p>
+  `
 })
-export class ChartComponent extends ChartJuiClass {
-    constructor() {
-        super();
-    }
+export class ChartComponent extends ChartCommonClass {
+  constructor() {
+    super();
+  }
 
-    ngOnInit() {
-        // 유니크한 값을 생성하여 전달해야 한다.
-        let uuidSelector = '.chartComponent';
-        let config = {
-        };
+  @Input() configuration: ChartConfiguration;
 
-        this.init(uuidSelector, config);
-    }
+  ngOnInit() {
+    // TODO: 유니크한 값을 생성하여 전달해야 한다.
+    let uuidSelector = '.chartComponent';
+    this.init(uuidSelector, this.configuration);
+  }
 }

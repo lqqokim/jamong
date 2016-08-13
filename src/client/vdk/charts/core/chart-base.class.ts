@@ -1,15 +1,18 @@
 import { Input, Output, EventEmitter } from '@angular/core';
+import { ChartConfiguration } from './chart-config.interface';
 
 export abstract class ChartBaseClass {
   constructor() {
 
   }
 
-  public init(selector: string, config: Object) {
+  public init(selector: string, config: ChartConfiguration) {
+    console.log('ChartBaseClass');
   }
 
-  public draw() {
-  }
+  abstract draw(): void;
+  abstract reDraw(): void;
+  abstract resize(): void;
 
   /*
   API

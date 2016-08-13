@@ -11,7 +11,7 @@ import { ChartComponent } from '../vdk/charts/chart.component';
     `,
     directives: [ ChartComponent ]
 })
-export class AppComponent implements OnInit {
+export class PlatformComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

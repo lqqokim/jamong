@@ -46,5 +46,9 @@ tmp
 gulpfile.js
 gulpfile.js.map
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 ts-node
 npm-debug*

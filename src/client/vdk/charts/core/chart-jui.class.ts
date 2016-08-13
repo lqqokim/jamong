@@ -1,5 +1,5 @@
 import { Input, Output, EventEmitter } from '@angular/core';
-import { ChartBaseClass } from './chartBase.class';
+import { ChartBaseClass } from './chart-base.class';
 
 export abstract class ChartJuiClass implements ChartBaseClass {
   constructor() {
@@ -7,6 +7,7 @@ export abstract class ChartJuiClass implements ChartBaseClass {
 
   public init(selector: string, config: Object) {
     console.log('init', 'ChartJuiClass');
+    console.log(jui);
   }
 
   public draw() {

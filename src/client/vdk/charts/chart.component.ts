@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChartCommonClass } from './core/chartCommon.class';
+import { ChartJuiClass } from './core/chart-jui.class';
 
 @Component({
     moduleId: module.id,
@@ -10,7 +10,7 @@ import { ChartCommonClass } from './core/chartCommon.class';
         <p>chart component</p>
     `
 })
-export class ChartComponent extends ChartCommonClass {
+export class ChartComponent extends ChartJuiClass {
     constructor() {
         super();
     }

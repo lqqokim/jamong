@@ -131,7 +131,8 @@ export class SeedConfig {
    * `hot_loader_main.ts` file will be used.
    * @type {string}
    */
-  BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main');
+  // BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main');
+  BOOTSTRAP_MODULE = 'jamong';
 
   /**
    * The default title of the application as used in the `<title>` tag of the
@@ -326,9 +327,12 @@ export class SeedConfig {
       '@angular/platform-browser-dynamic': `node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js`,
       '@angular/router': `node_modules/@angular/router/index.js`,
       'rxjs/*': `node_modules/rxjs/*`,
+      'vdk/*': `/vdk/*`,
+      'platform/*': `/platform/*`,
+      'common/*': `/common/*`,
+      'app/*': `/app/*`,
       '@ngrx/core': `node_modules/@ngrx/core/index.js`,
       '@ngrx/store': `node_modules/@ngrx/store/index.js`,
-      'app/*': `/app/*`,
       '*': `node_modules/*`
     },
     packages: {

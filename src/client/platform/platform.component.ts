@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'jm-app',
     template: `hello world`
 })
-export class AppComponent implements OnInit {
+export class PlatformComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

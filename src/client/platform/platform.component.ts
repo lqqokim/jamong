@@ -4,14 +4,23 @@ import { ChartComponent } from '../vdk/charts/chart.component';
 import { ChartConfiguration, Orient } from '../vdk/charts/core/chart-config.interface';
 
 @Component({
+// <<<<<<< HEAD
   moduleId: module.id,
   selector: 'jm-app',
   template: `
+        <router-outlet></router-outlet>
         <p>app</p>
         <chart #chart [configuration]="chartConfiguration"></chart>
         <button (click)="toggleChart(chart)">toggle</button>
     `,
   directives: [ChartComponent]
+// =======
+//     moduleId: module.id,
+//     selector: 'jm-app',
+//     template: `
+//         <router-outlet></router-outlet>
+//     `
+// >>>>>>> 5fa09d6a89ddc0247c55b70ec3c0da422990b2b3
 })
 export class PlatformComponent implements OnInit {
   constructor() { }

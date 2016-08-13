@@ -1,7 +1,7 @@
 import { Input, Output, EventEmitter } from '@angular/core';
-import { ChartConfiguration } from './chart-config.interface';
+import { ChartConfiguration } from '../core/chart-config.type';
 
-import { ChartBaseClass } from './chart-base.class';
+import { ChartBaseClass } from '../core/chart-base.class';
 
 export class ChartJuiClass extends ChartBaseClass {
   constructor() {

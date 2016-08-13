@@ -1,8 +1,8 @@
 import { Input, Output, EventEmitter } from '@angular/core';
-import { ChartConfiguration } from './chart-config.interface';
+import { ChartConfiguration } from './chart-config.type';
 
 import { ChartBaseClass } from './chart-base.class';
-import { ChartJuiClass } from './chart-jui.class'
+import { ChartJuiClass } from '../jui/chart-jui.class'
 
 export class ChartCommonClass extends ChartBaseClass {
   constructor() {

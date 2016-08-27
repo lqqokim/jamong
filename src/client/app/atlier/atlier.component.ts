@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsService } from '../../vdk';
 
 import { ChartComponent } from '../../vdk/charts/chart.component';
-import { ChartConfiguration, Orient } from '../../vdk/charts/core/chart-config.type';
+import { ChartConfiguration, OrientType, BrushType, AxisType } from '../../vdk/charts/core/chart-config.type';
+import { NgGrid, NgGridItem } from 'angular2-grid';
 
 @Component({
   moduleId: module.id,
@@ -12,8 +13,52 @@ import { ChartConfiguration, Orient } from '../../vdk/charts/core/chart-config.t
     .navbar {
       text-align : center;
     }
+    
+    .grid {
+    background-color: #efefef ;
+    width: 100%;
+    min-height: 750px;
+}
+
+.grid-item {
+    background-color: #ffffff ;
+    -webkit-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    -moz-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    -o-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    border: solid 1px;
+}
+
+.grid-item:active, .grid-item.moving {
+    z-index: 2;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.grid-placeholder {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 767px) {
+    .grid {
+        width: 100% !important;
+        height: auto !important;
+        padding: 10px;
+    }
+    .grid-item {
+        position: static !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    .grid-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
   `],
-  directives: [ChartComponent]
+  directives: [ChartComponent, NgGrid, NgGridItem]
 })
 export class AtlierComponent implements OnInit {
   components: any;
@@ -21,7 +66,7 @@ export class AtlierComponent implements OnInit {
 
   constructor(private formsService: FormsService) { }
 
-  chartConfiguration: ChartConfiguration;
+  chartConfigs: Array<ChartConfiguration> = [];
 
   ngOnInit() {
     this.components = this.formsService.getComponents();
@@ -35,35 +80,35 @@ export class AtlierComponent implements OnInit {
       });
     });
 
-    this.chartConfiguration = {
-      axisX: {
-        type: "range",
-        domain: [-40, 60],
-        step: 10,
-        line: true
-      },
-      axisY: {
-        type: "block",
-        domain: "quarter",
-        line: true
-      },
-      data: [
-        { quarter: "1Q", sales: 50, profit: 35 },
-        { quarter: "2Q", sales: -20, profit: -30 },
-        { quarter: "3Q", sales: 10, profit: -5 },
-        { quarter: "4Q", sales: 30, profit: 25 }
-      ],
-      brush: {
-        type: "bar",
-        target: ["sales", "profit"]
-      },
-      widget: [
-        { type: "title", text: "Bar Sample" },
-        { type: "tooltip", orient: Orient.Left },
-        { type: "legend" }
-      ]
+    let chartConfig:ChartConfiguration = {};
+    chartConfig.brush = [{
+      type: BrushType.Scatter,
+      target: ["sales", "profit"]
+    }];
+    chartConfig.axisX = {
+      type: AxisType.Range,
+      domain: [-40, 60],
+      step: 10,
+      line: true
     };
+    chartConfig.axisY = {
+      type: AxisType.Block,
+      domain: "quarter",
+      line: true
+    };
+    chartConfig.data = [
+      { quarter: "1Q", sales: 50, profit: 35 },
+      { quarter: "2Q", sales: -20, profit: -30 },
+      { quarter: "3Q", sales: 10, profit: -5 },
+      { quarter: "4Q", sales: 30, profit: 25 }
+    ];
+    chartConfig.widget = [
+      { type: "title", text: "Bar Sample" },
+      { type: "tooltip", orient: OrientType.Left },
+      { type: "legend" }
+    ];
 
+    this.chartConfigs.push(chartConfig);
    }
 
    show(e: any) {

@@ -21,9 +21,18 @@ export class ChartCommonClass extends ChartBaseClass {
     this.chartClass.init(selector, this.configuration);
   }
 
-  public draw() {
+  public draw(config?: ChartConfiguration) {
+    console.log('draw', 'ChartCommonClass');
+
+    if(!config) {
+      this.configuration = config;
+    }
+
+    this.chartClass.draw(this.configuration);
   }
   public reDraw() {
+    console.log('reDraw', 'ChartCommonClass');
+
     this.chartClass.reDraw();
   }
   public resize() {

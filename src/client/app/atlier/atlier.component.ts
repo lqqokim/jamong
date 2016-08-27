@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsService } from '../../vdk';
 
 import { ChartComponent } from '../../vdk/charts/chart.component';
-import { ChartConfiguration, Orient } from '../../vdk/charts/core/chart-config.type';
+import { ChartConfiguration, OrientType, BrushType, AxisType } from '../../vdk/charts/core/chart-config.type';
 
 @Component({
   moduleId: module.id,
@@ -21,7 +21,7 @@ export class AtlierComponent implements OnInit {
 
   constructor(private formsService: FormsService) { }
 
-  chartConfiguration: ChartConfiguration;
+  chartConfigs: Array<ChartConfiguration> = [];
 
   ngOnInit() {
     this.components = this.formsService.getComponents();
@@ -35,35 +35,35 @@ export class AtlierComponent implements OnInit {
       });
     });
 
-    this.chartConfiguration = {
-      axisX: {
-        type: "range",
-        domain: [-40, 60],
-        step: 10,
-        line: true
-      },
-      axisY: {
-        type: "block",
-        domain: "quarter",
-        line: true
-      },
-      data: [
-        { quarter: "1Q", sales: 50, profit: 35 },
-        { quarter: "2Q", sales: -20, profit: -30 },
-        { quarter: "3Q", sales: 10, profit: -5 },
-        { quarter: "4Q", sales: 30, profit: 25 }
-      ],
-      brush: {
-        type: "bar",
-        target: ["sales", "profit"]
-      },
-      widget: [
-        { type: "title", text: "Bar Sample" },
-        { type: "tooltip", orient: Orient.Left },
-        { type: "legend" }
-      ]
+    let chartConfig:ChartConfiguration = {};
+    chartConfig.brush = [{
+      type: BrushType.Scatter,
+      target: ["sales", "profit"]
+    }];
+    chartConfig.axisX = {
+      type: AxisType.Range,
+      domain: [-40, 60],
+      step: 10,
+      line: true
     };
+    chartConfig.axisY = {
+      type: AxisType.Block,
+      domain: "quarter",
+      line: true
+    };
+    chartConfig.data = [
+      { quarter: "1Q", sales: 50, profit: 35 },
+      { quarter: "2Q", sales: -20, profit: -30 },
+      { quarter: "3Q", sales: 10, profit: -5 },
+      { quarter: "4Q", sales: 30, profit: 25 }
+    ];
+    chartConfig.widget = [
+      { type: "title", text: "Bar Sample" },
+      { type: "tooltip", orient: OrientType.Left },
+      { type: "legend" }
+    ];
 
+    this.chartConfigs.push(chartConfig);
    }
 
    show(e: any) {

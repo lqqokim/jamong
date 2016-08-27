@@ -17,27 +17,28 @@ export class ChartJuiClass extends ChartBaseClass {
 
     this.selector = selector;
     this.configuration = config;
-
     this.chart = jui.include("chart.builder");
+  }
 
+  public draw(config?: ChartConfiguration) {
+    console.log('draw', 'ChartJuiClass');
+
+    if(!config) {
+      this.configuration = config;
+    }
+    
     this.chart(this.selector, {
-        axis : {
-            x : this.configuration.axisX,
-            y : this.configuration.axisY,
-            data : this.configuration.data
-        },
-        brush : {
-            type : this.configuration.brush.type,
-            target : this.configuration.brush.target
-        },
-        widget : this.configuration.widget
+      axis : {
+          x : this.configuration.axisX,
+          y : this.configuration.axisY,
+          data : this.configuration.data
+      },
+      brush : this.configuration.brush,
+      widget : this.configuration.widget
     });
   }
-
-  public draw() {
-  }
   public reDraw() {
-    console.log(this.configuration, this.selector);
+    console.log('reDraw', 'ChartJuiClass');
   }
   public resize() {
   }

@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ChartCommonClass } from './core/chart-common.class';
-import { ChartConfiguration } from './core/chart-config.type';
+import { ChartConfiguration, Brush, Axis, AxisData, Widget } from './core/chart-config.type';
 
 @Component({
   moduleId: module.id,
   selector: 'jm-chart',
   template: `
-      <div class="chartComponent" style="height: 500px;">
+      <div class="{{ uuid }}" style="height: 500px;">
       </div>
   `
 })
@@ -15,14 +15,33 @@ export class ChartComponent extends ChartCommonClass {
     super();
   }
 
-  @Input() configuration: ChartConfiguration;
+  uuid: string;
 
-  // TODO: event 테스트
-  // @Ouput
+  @Input() configBrush: Array<Brush>;
+  @Input() configAxisX: Axis;
+  @Input() configAxisY: Axis;
+  @Input() configData: Array<Object>;
+  @Input() configWidget: Array<Widget>;
 
   ngOnInit() {
-    // TODO: 유니크한 값을 생성하여 전달해야 한다.
-    let uuidSelector = '.chartComponent';
-    this.init(uuidSelector, this.configuration);
+    console.log('ngOnInit', 'ChartComponent');
+
+    // TODO: uuid 생성 
+    let uuidNumber: string = (Math.random() * 10000).toString().replace('.', '').substr(0, 10);
+    this.uuid = 'chart' + uuidNumber;
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit', 'ChartComponent');
+
+    let configuration: ChartConfiguration = {};
+    configuration.brush = this.configBrush;
+    configuration.axisX = this.configAxisX;
+    configuration.axisY = this.configAxisY;
+    configuration.data = this.configData;
+    configuration.widget = this.configWidget;
+
+    this.init('.'+this.uuid, configuration);
+    this.draw(configuration);
   }
 }

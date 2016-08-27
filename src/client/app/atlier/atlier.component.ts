@@ -3,6 +3,7 @@ import { FormsService } from '../../vdk';
 
 import { ChartComponent } from '../../vdk/charts/chart.component';
 import { ChartConfiguration, OrientType, BrushType, AxisType } from '../../vdk/charts/core/chart-config.type';
+import { NgGrid, NgGridItem } from 'angular2-grid';
 
 @Component({
   moduleId: module.id,
@@ -12,8 +13,52 @@ import { ChartConfiguration, OrientType, BrushType, AxisType } from '../../vdk/c
     .navbar {
       text-align : center;
     }
+    
+    .grid {
+    background-color: #efefef ;
+    width: 100%;
+    min-height: 750px;
+}
+
+.grid-item {
+    background-color: #ffffff ;
+    -webkit-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    -moz-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    -o-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s;
+    border: solid 1px;
+}
+
+.grid-item:active, .grid-item.moving {
+    z-index: 2;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.grid-placeholder {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 767px) {
+    .grid {
+        width: 100% !important;
+        height: auto !important;
+        padding: 10px;
+    }
+    .grid-item {
+        position: static !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    .grid-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
   `],
-  directives: [ChartComponent]
+  directives: [ChartComponent, NgGrid, NgGridItem]
 })
 export class AtlierComponent implements OnInit {
   components: any;

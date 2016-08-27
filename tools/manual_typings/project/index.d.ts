@@ -4,3 +4,4 @@
 
 declare var jQuery: any;
 declare var $: any;
+declare var jui: any;
